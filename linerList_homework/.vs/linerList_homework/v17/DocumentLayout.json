@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GithubRepos\\data structure homework\\linerList_homework\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1313F7FC-0323-423F-9B95-62FBEB0DBC61}|linerList_homework\\linerList_homework.vcxproj|D:\\GithubRepos\\data structure homework\\linerList_homework\\linerList_homework\\linerList_homework.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1313F7FC-0323-423F-9B95-62FBEB0DBC61}|linerList_homework\\linerList_homework.vcxproj|solutionrelative:linerList_homework\\linerList_homework.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\C\u002B\u002Bprojects\\linerlist.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "linerlist.cpp",
+              "DocumentMoniker": "D:\\C\u002B\u002Bprojects\\linerlist.cpp",
+              "RelativeDocumentMoniker": "..\\..\\..\\C\u002B\u002Bprojects\\linerlist.cpp",
+              "ToolTip": "D:\\C\u002B\u002Bprojects\\linerlist.cpp",
+              "RelativeToolTip": "..\\..\\..\\C\u002B\u002Bprojects\\linerlist.cpp",
+              "ViewState": "AQIAAEcAAAAAAAAAAAAAAGAAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-25T02:11:34.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "linerList_homework.cpp",
+              "DocumentMoniker": "D:\\GithubRepos\\data structure homework\\linerList_homework\\linerList_homework\\linerList_homework.cpp",
+              "RelativeDocumentMoniker": "linerList_homework\\linerList_homework.cpp",
+              "ToolTip": "D:\\GithubRepos\\data structure homework\\linerList_homework\\linerList_homework\\linerList_homework.cpp",
+              "RelativeToolTip": "linerList_homework\\linerList_homework.cpp",
+              "ViewState": "AQIAADwAAAAAAAAAAAAAAFMAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-25T02:11:19.04Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
