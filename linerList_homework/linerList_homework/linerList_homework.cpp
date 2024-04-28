@@ -1,4 +1,4 @@
-﻿#include <cstdlib>
+#include <cstdlib>
 #include <cstdio>
 #include <iostream>
 
@@ -68,9 +68,9 @@ int ListInsert_L(LinkList& L, int i, int e) {
 
 int deleteListElem(SqLinerList& L, int i) {
 	if (i < 1 || i > L.length) return -1;
-	int* p = &(L.elem[i - 1]);
-	int& e = *p;
-	int* q = L.elem + L.length - 1;
+	int *p = &(L.elem[i - 1]);
+	int &e = *p;
+	int *q = L.elem + L.length - 1;
 	for (++p; p <= q; ++p)
 		*(p - 1) = *p;
 	--L.length;
