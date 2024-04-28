@@ -8,9 +8,14 @@ typedef struct {
 	int* elem;
 	int length;
 	int listsize;
-}SqList;
+}SqLinerList;
 
-bool initList(SqList& L) {
+typedef struct LNode {
+	int data;
+	struct LNode* next;
+}LNode, * LinkList;
+
+bool initList(SqLinerList& L) {
 	L.elem = (int*)malloc(LIST_INIT_SIZE * sizeof(int));
 	if (!L.elem)return false;
 	L.length = 0;
@@ -18,7 +23,18 @@ bool initList(SqList& L) {
 	return true;
 }
 
-int insertList(SqList& L, int i, int e) {
+void CreateList_L(LinkList& L, int n) {
+	L = (LinkList)malloc(sizeof(LNode));
+	L->next = NULL;
+
+	LinkList p = (LinkList)malloc(sizeof(LNode));
+	p->data = n;
+	p->next = L->next;
+	L->next = p;
+
+}
+
+int insertList(SqLinerList& L, int i, int e) {
 	if (i < 1 || i > L.length + 1) return -1;
 	if (L.length >= L.listsize) {
 		int* newbase = (int*)realloc(L.elem,
@@ -35,7 +51,22 @@ int insertList(SqList& L, int i, int e) {
 	return e;
 }
 
-int deleteListElem(SqList& L, int i) {
+int ListInsert_L(LinkList& L, int i, int e) {
+	LinkList p = L;
+	int j = 0;
+	while (p && j < i - 1) {
+		p = p->next;
+		++j;
+	}
+	if (!p || j > i - 1) return -1;
+	LinkList s = (LinkList)malloc(sizeof(LNode));
+	s->data = e;
+	s->next = p->next;
+	p->next = s;
+	return e;
+}
+
+int deleteListElem(SqLinerList& L, int i) {
 	if (i < 1 || i > L.length) return -1;
 	int* p = &(L.elem[i - 1]);
 	int& e = *p;
@@ -46,7 +77,22 @@ int deleteListElem(SqList& L, int i) {
 	return e;
 }
 
-void mergeList(SqList La, SqList Lb, SqList& Lc) {
+int ListDelete_L(LinkList& L, int i) {
+	LinkList p = L;
+	int j = 0;
+	while (p && j < i - 1) {
+		p = p->next;
+		++j;
+	}
+	if (!p || j > i - 1) return -1;
+	LinkList q = p->next;
+	p->next = q->next;
+	int e = q->data;
+	free(q);
+	return e;
+}
+
+void mergeList(SqLinerList La, SqLinerList Lb, SqLinerList& Lc) {
 	int* pa = La.elem;
 	int* pb = Lb.elem;
 	Lc.listsize = Lc.length = La.length + Lb.length;
@@ -61,11 +107,33 @@ void mergeList(SqList La, SqList Lb, SqList& Lc) {
 	while (pa <= pa_last) *pc++ = *pa++;
 	while (pb <= pb_last) *pc++ = *pb++;
 }
+
+void mergeList_Link(LinkList& La, LinkList& Lb, LinkList& Lc) {
+	LinkList pa = La->next;
+	LinkList pb = Lb->next;
+	LinkList pc;
+	Lc = pc = La;
+	while (pa && pb) {
+		if (pa->data <= pb->data) {
+			pc->next = pa;
+			pc = pa;
+			pa = pa->next;
+		}
+		else {
+			pc->next = pb;
+			pc = pb;
+			pb = pb->next;
+		}
+		pc->next = pa ? pa : pb;
+		free(Lb);
+	}
+}
+
 int main()
 {
-	SqList l;
-	SqList l2;
-	SqList Lmerged;
+	SqLinerList l;
+	SqLinerList l2;
+	SqLinerList Lmerged;
 	initList(l);
 	initList(l2);
 	initList(Lmerged);
@@ -90,13 +158,3 @@ int main()
 	return 0;
 }
 
-// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
-// 调试程序: F5 或调试 >“开始调试”菜单
-
-// 入门使用技巧: 
-//   1. 使用解决方案资源管理器窗口添加/管理文件
-//   2. 使用团队资源管理器窗口连接到源代码管理
-//   3. 使用输出窗口查看生成输出和其他消息
-//   4. 使用错误列表窗口查看错误
-//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
-//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件
