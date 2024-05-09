@@ -1,20 +1,66 @@
-﻿// binary_tree.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
-//
-
+﻿#include <cstdio>
 #include <iostream>
+#define MAX 100
+#define STACK_INIT_SIZE 100
+#define STACKINCREMENT 10
 
-int main()
-{
-    std::cout << "Hello World!\n";
+typedef int TElemtype;
+
+typedef struct {
+    int* base;
+    int* top;
+    int stacksize;
+}SqStack;
+
+int InitStack(SqStack& S) {
+    S.base = (int*)malloc(STACK_INIT_SIZE * sizeof(int));
+    if (!S.base)exit(-2);
+    S.top = S.base;
+    S.stacksize = STACK_INIT_SIZE;
+    return 1;
 }
 
-// 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
-// 调试程序: F5 或调试 >“开始调试”菜单
+int GetTop(SqStack S, int& e) {
+    if (S.top == S.base)return 0;
+    e = *(S.top - 1);
+    return 1;
+}
 
-// 入门使用技巧: 
-//   1. 使用解决方案资源管理器窗口添加/管理文件
-//   2. 使用团队资源管理器窗口连接到源代码管理
-//   3. 使用输出窗口查看生成输出和其他消息
-//   4. 使用错误列表窗口查看错误
-//   5. 转到“项目”>“添加新项”以创建新的代码文件，或转到“项目”>“添加现有项”以将现有代码文件添加到项目
-//   6. 将来，若要再次打开此项目，请转到“文件”>“打开”>“项目”并选择 .sln 文件
+int Push(SqStack& S, int& e) {
+    if (S.top - S.base >= S.stacksize) {
+        S.base = (int*)realloc(S.base,
+            (S.stacksize + STACKINCREMENT) * sizeof(int));
+        if (!S.base)exit(-2);
+        S.top = S.base + S.stacksize;
+        S.stacksize += STACKINCREMENT;
+    }
+    *S.top++ = e;
+    return 1;
+}
+
+int Pop(SqStack& S, int e) {
+    if (S.top == S.base)return 0;
+    e = *--S.top;
+    return 1;
+}
+
+typedef struct BiTNode {
+	int data;
+	struct BiTNode* lchild, * rchild;
+}BiTNode, *BiTree;
+
+int PreOrderTraverse(BiTree T, int (*Visit)(int e)) {
+	if (T) {
+		if (Visit(T->data))
+			if (PreOrderTraverse(T->lchild, Visit))
+				if (PreOrderTraverse(T->rchild, Visit)) return 1;
+		return 0;
+	}
+	else return 1;
+}
+
+int InOrderTraverse(BiTree T, int (*Visit)(int e)) {
+    SqStack S;
+    InitStack(S); Push(S, T);
+
+}

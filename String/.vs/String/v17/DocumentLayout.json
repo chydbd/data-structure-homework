@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GithubRepos\\data structure homework\\String\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0FDE1651-8FCD-4A2E-B5CA-5DD5A0C24B76}|String\\String.vcxproj|D:\\GithubRepos\\data structure homework\\String\\String\\String.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0FDE1651-8FCD-4A2E-B5CA-5DD5A0C24B76}|String\\String.vcxproj|solutionrelative:String\\String.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "String.cpp",
+              "DocumentMoniker": "D:\\GithubRepos\\data structure homework\\String\\String\\String.cpp",
+              "RelativeDocumentMoniker": "String\\String.cpp",
+              "ToolTip": "D:\\GithubRepos\\data structure homework\\String\\String\\String.cpp",
+              "RelativeToolTip": "String\\String.cpp",
+              "ViewState": "AQIAAEQAAAAAAAAAAADwv1QAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-09T00:26:29.035Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
